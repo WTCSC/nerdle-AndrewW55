@@ -33,6 +33,17 @@ def is_valid_guess(guess):
     Returns:
         bool: True if the guess is valid, False otherwise
     """
+    counter = 0
+    valid = True
+    for char in guess: 
+        if char not in get_valid_characters():
+            valid = False
+
+    if len(guess) == 8 and valid == True and equation_generator.validate_equation(guess) == True:
+        return True
+    
+    return False
+
 
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
