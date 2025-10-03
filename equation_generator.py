@@ -10,6 +10,8 @@ For example: 12+34=46 or 8*7=56
 # TODO: Import the appropriate modules #
 ########################################
 
+import random
+
 ###########################################
 # TODO: Implement the following functions #
 ###########################################
@@ -24,6 +26,11 @@ def generate_numbers_for_addition():
 
     Example: (12, 34, 46) creates "12+34=46"
     """
+    num1 = random.randint(10,99)
+    num2 = random.randint(10,99)
+    result = num1 + num2
+
+    return (num1, num2, result)
 
 def generate_numbers_for_subtraction():
     """
@@ -35,6 +42,12 @@ def generate_numbers_for_subtraction():
 
     Example: (56, 23, 33) creates "56-23=33"
     """
+    num1 = random.randint(10,99)
+    num2 = random.randint(10,99)
+    if num1 > num2:
+        return (num1, num2, num1-num2)
+    else:
+        return (num2, num1, num2-num1)
 
 def generate_numbers_for_multiplication():
     """
@@ -47,6 +60,11 @@ def generate_numbers_for_multiplication():
     
     Example: (3, 34, 102) creates "3*34=102" (8 characters)
     """
+    num1 = random.randint(3,9)
+    num2 = random.randint(34,99)
+    result = num1 * num2
+
+    return (num1, num2, result)
 
 def generate_numbers_for_division():
     """
@@ -59,6 +77,11 @@ def generate_numbers_for_division():
 
     Example: (252, 36, 7) creates "252/36=7"
     """
+    num1 = random.randint(50, 99)
+    num2 = random.randint(2, 9)
+    result = num1 * num2
+
+    return (result, num1, num2)
     
 ################################################################################
 #  DO NOT EDIT BELOW THIS LINE, THESE FUNCTIONS ARE ALREADY COMPLETED FOR YOU  #
