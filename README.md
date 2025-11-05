@@ -1,13 +1,90 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Tm7PdKHd)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=20880146)
-<!-- 
-   Assignment Notes:
-   - To run the game, execute `python3 nerdle.py` in the terminal.
-   - Your task is to implement the equation generation functions in `equation_generator.py` and the solution validator in `game_engine.py`.
-   - Don't forget to import your modules.
-   - PAY ATTENTION TO THE TODO COMMENTS IN THE CODE.
-   - Each function has comments detailing its purpose and requirements.
-   - Code is automatically tested *every time* you push changes to GitHub.
--->
 
-# Nerdle
+# Nerdle (Math Wordle)
+
+Small terminal-based clone of Wordle using 8-character math equations instead of words.
+
+## Summary
+
+This project implements a terminal Nerdle game where the player has 6 attempts to guess a valid, 8-character math equation (examples: `12+34=46`, `3*34=102`). Each guess receives color-coded feedback per character:
+
+- Green: correct character in correct position
+- Yellow: character exists in the equation but in a different position
+- Gray: character not present in the equation
+
+The codebase contains:
+
+- `nerdle.py` — main CLI and game loop
+- `game_engine.py` — game logic, feedback formatting, validation helpers
+- `equation_generator.py` — random, valid 8-character equation generation and validation
+- `tests/` — unit tests
+
+## Requirements
+
+- Python 3.8+
+- (No additional packages required)
+
+## Quick start
+
+Run the game from the project root:
+
+```bash
+python3 nerdle.py
+```
+
+Run the test suite (from project root):
+
+```bash
+pytest -q
+```
+
+## How to play
+
+- The target is always exactly 8 characters.
+- Valid characters: `0123456789+-*/=` (exactly one `=` in a valid guess).
+- You have 6 attempts to find the correct equation.
+- After each guess you'll see colored feedback. If your terminal doesn't support colors, the game still works — the `game_engine` provides a plain-text formatter for tests.
+
+Example rules enforced by the game:
+
+- Guess length must be exactly 8 characters.
+- The guess must be a mathematically-correct equation (right-hand side equals the left-hand side expression).
+- Exactly one `=` is required.
+
+## Play example (visual)
+
+Assume the hidden target equation is:
+
+	12+34=46
+
+You guess:
+
+	15+35=50
+
+Feedback (colored in the terminal) will indicate per-character correctness. In plain-text the same feedback could be shown like:
+
+[1G][5B][+G][3Y][5B][=G][5B][0B]
+
+Interpretation:
+
+- `1G`: the `1` is correct and in the correct position (Green)
+- `5B`: the `5` is not in the target equation (Gray/Black)
+- `+G`: the `+` is correct and in the correct position
+- `3Y`: the `3` exists somewhere in the target but not at that position (Yellow)
+- `=G`: the equals sign is correct and in the correct position
+
+Continue guessing until you either find the exact equation (all Greens) or run out of attempts.
+
+## Notes for contributors
+
+- Tests are in the `tests/` folder. Please run them before opening PRs.
+- Keep equations exactly 8 characters long — the generator and the validator assume that length throughout the codebase.
+
+## Troubleshooting
+
+- If you see weird characters instead of colors, your terminal might not support ANSI color escape sequences. The game will still run; focus on the plain indicators (G/Y/B) when reading test output.
+
+## Contact / License
+
+This is a small educational project. Feel free to open issues or PRs on the repository for improvements.
+
+Have fun and good luck!

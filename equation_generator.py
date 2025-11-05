@@ -28,9 +28,13 @@ def generate_numbers_for_addition():
     """
     num1 = random.randint(10,99)
     num2 = random.randint(10,99)
-    result = num1 + num2
-
-    return (num1, num2, result)
+    while num1 - num2 < 10 and num2 - num1 < 10:
+        num1 = random.randint(10,99)
+        num2 = random.randint(10,99)
+    if num1 > num2:
+        return (num1-num2, num2, num1)
+    else:
+        return (num2-num1, num1, num2)
 
 def generate_numbers_for_subtraction():
     """
@@ -44,6 +48,9 @@ def generate_numbers_for_subtraction():
     """
     num1 = random.randint(10,99)
     num2 = random.randint(10,99)
+    while num1 - num2 < 10 and num2 - num1 < 10:
+        num1 = random.randint(10,99)
+        num2 = random.randint(10,99)
     if num1 > num2:
         return (num1, num2, num1-num2)
     else:
@@ -60,8 +67,11 @@ def generate_numbers_for_multiplication():
     
     Example: (3, 34, 102) creates "3*34=102" (8 characters)
     """
-    num1 = random.randint(3,9)
-    num2 = random.randint(34,99)
+    num1 = random.randint(1,9)
+    num2 = random.randint(10,99)
+    while num1 * num2 < 100:
+        num1 = random.randint(1,9)
+        num2 = random.randint(10,99)
     result = num1 * num2
 
     return (num1, num2, result)
@@ -77,8 +87,11 @@ def generate_numbers_for_division():
 
     Example: (252, 36, 7) creates "252/36=7"
     """
-    num1 = random.randint(50, 99)
-    num2 = random.randint(2, 9)
+    num1 = random.randint(10, 99)
+    num2 = random.randint(1, 9)
+    while num1 * num2 < 100:
+        num1 = random.randint(10,99)
+        num2 = random.randint(1,9)
     result = num1 * num2
 
     return (result, num1, num2)
