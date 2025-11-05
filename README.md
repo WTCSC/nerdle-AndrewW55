@@ -74,6 +74,16 @@ Interpretation:
 
 Continue guessing until you either find the exact equation (all Greens) or run out of attempts.
 
+## Decision tree
+
+If you have a decision-tree diagram that explains the game's logic (suggested file name `nerdle-decs.png`), place it in the project root and it will be displayed below:
+
+![Nerdle decision tree](nerdle-decs.png)
+
+If the image file is not present, the link above will be shown as broken in some viewers — add `nerdle-decs.png` to the repository root (or adjust the path) to have it render in the README.
+
+Tip: a PNG at around 1200×800 px or an SVG exported to PNG at comparable size works well for readability on GitHub and in terminals that show images.
+
 ## Notes for contributors
 
 - Tests are in the `tests/` folder. Please run them before opening PRs.
